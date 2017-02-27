@@ -57,7 +57,9 @@ module.exports = function(grunt) {
                             
                             
                             if(matchedRule !== undefined && matchedText !== undefined){
-                                contents = contents.replace(matchedRule, jsonData[matchedText]);
+                                if(jsonData[matchedText]){
+                                    contents = contents.replace(matchedRule, jsonData[matchedText]);
+                                }
                             }
 
                         }

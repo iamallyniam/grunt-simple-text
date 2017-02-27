@@ -81,7 +81,6 @@ module.exports = function(grunt) {
         }else{
             grunt.log.writeln('No Json file set.');
         }
-        fs.readFile.stat()
         
         
     });

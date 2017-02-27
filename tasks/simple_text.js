@@ -65,12 +65,12 @@ module.exports = function(grunt) {
                         }
                         
                         grunt.file.write(file.dest, contents);
-                        grunt.log.writeln('Classes removed from ' + src + ', and saved to ' + file.dest);
+                        grunt.log.writeln('Text from ' + src + ' saved to ' + file.dest);
                         
                     }else{
                         
                         grunt.file.write(file.dest, contents);
-                        grunt.log.writeln('Classes removed from ' + src + ', and saved to ' + file.dest);
+                        grunt.log.writeln('Text from ' + src + ' saved to ' + file.dest);
                         
                     }
                     

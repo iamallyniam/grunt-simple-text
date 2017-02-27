@@ -26,10 +26,13 @@ In your project's Gruntfile, add a section named `simple_text` to the data objec
 grunt.initConfig({
   simple_text: {
     options: {
-      // Task-specific options go here.
+      json: 'path/to/file.json',
+      key: 'default',
+      openBracket : '{',
+      closeBracket : '}'
     },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      "path/save/file.html" : "path/process/file.html"
     },
   },
 });
@@ -37,49 +40,86 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.json
 Type: `String`
-Default value: `',  '`
+Default value: `''`
 
-A string value that is used to do something with whatever.
+Path to json file containing the strings that can be added to your files.
 
-#### options.punctuation
+#### options.key
 Type: `String`
-Default value: `'.'`
+Default value: `'default'`
 
-A string value that is used to do something else with whatever else.
+Key in json has multiple text sources for the same text identifiers. This can come in handy if using different text for different release platforms.
+
+#### options.openBracket
+Type: `String`
+Default value: `'{'`
+
+Open bracket symbol to identify the key name to get the string value.
+
+#### options.closeBracket
+Type: `String`
+Default value: `'}'`
+
+Close bracket symbol to identify the key name to get the string value.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  simple_text: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+This example will take the file.html and check for any strings between {}, these will be used as keys to get any values from the parent key 'Default' in the file.json.
 
 ```js
 grunt.initConfig({
   simple_text: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      json: 'path/to/file.json',
+      key: 'default',
+      openBracket : '{',
+      closeBracket : '}'
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/output.html': ['src/orig/file.html'],
     },
   },
 });
+```
+
+If file.html has the contents
+
+```html
+<div class="textItem">
+  <p>{LongText}</p>
+</div>
+```
+
+and file.json has the contents
+
+```js
+{
+  "default" : {
+    "LongText" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  "release" : {
+    "LongText" : "Actual long text for release."
+  }
+}
+```
+
+then output.html will save with
+
+```html
+<div class="textItem">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+```
+
+If the key option had been set to release, the output.html file would have this as it's contents
+
+```html
+<div class="textItem">
+  <p>ctual long text for release.</p>
+</div>
 ```
 
 ## Contributing

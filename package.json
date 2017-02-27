@@ -2,7 +2,7 @@
   "name": "grunt-simple-text",
   "description": "Replace text with a key value from a json file",
   "version": "0.1.6",
-  "homepage": "https://github.com/root/grunt-simple-text",
+  "homepage": "https://github.com/iamallyniam/grunt-simple-text",
   "author": {
     "name": "Allyn Thomas",
     "email": "allyn@iamallyniam.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/root/grunt-simple-text.git"
+    "url": "git://github.com/iamallyniam/grunt-simple-text.git"
   },
   "bugs": {
-    "url": "https://github.com/root/grunt-simple-text/issues"
+    "url": "https://github.com/iamallyniam/grunt-simple-text/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/root/grunt-simple-text/blob/master/LICENSE-MIT"
+      "url": "https://github.com/iamallyniam/grunt-simple-text/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {

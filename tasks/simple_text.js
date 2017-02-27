@@ -27,12 +27,6 @@ module.exports = function(grunt) {
         var jsonFile = options.json;
         var openBracket = options.openBracket;
         var closeBracket = options.closeBracket;
-        if(openBracket == "["){
-            openBracket = "\[";
-        }
-        if(closeBracket == "]"){
-            closeBracket = "\]";
-        }
         var fileKey = options.key;
         var regexp = new RegExp(openBracket + "(.*?)" + closeBracket,"g");
         if(jsonFile){
@@ -62,7 +56,7 @@ module.exports = function(grunt) {
                             var matchedText = extract[i][1];
                             
                             
-                            if(matchedRule != undefined && matchedText != undefined){
+                            if(matchedRule !== undefined && matchedText !== undefined){
                                 contents = contents.replace(matchedRule, jsonData[matchedText]);
                             }
 

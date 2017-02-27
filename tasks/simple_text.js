@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             
             if(jsonFileExists){
                 
-                jsonData = grunt.file.readJSON(jsonFile);
+                var jsonData = grunt.file.readJSON(jsonFile);
                 jsonData = jsonData[fileKey];
                 
                 this.files.forEach(function (file) {

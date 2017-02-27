@@ -1,7 +1,7 @@
 {
   "name": "grunt-simple-text",
   "description": "Replace text with a key value from a json file",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/root/grunt-simple-text",
   "author": {
     "name": "Allyn Thomas",

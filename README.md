@@ -32,7 +32,9 @@ grunt.initConfig({
       closeBracket : '}'
     },
     your_target: {
-      "path/save/file.html" : "path/process/file.html"
+      files : {
+        "path/save/file.html" : "path/process/file.html"
+      }
     },
   },
 });
@@ -72,16 +74,18 @@ This example will take the file.html and check for any strings between {}, these
 ```js
 grunt.initConfig({
   simple_text: {
-    options: {
-      json: 'path/to/file.json',
-      key: 'default',
-      openBracket : '{',
-      closeBracket : '}'
-    },
-    files: {
-      'dest/output.html': ['src/orig/file.html'],
-    },
-  },
+    main : {
+      options: {
+        json: 'path/to/file.json',
+        key: 'default',
+        openBracket : '{',
+        closeBracket : '}'
+      },
+      files: {
+        'dest/output.html': ['src/orig/file.html'],
+      }
+    }
+  }
 });
 ```
 
@@ -118,7 +122,7 @@ If the key option had been set to release, the output.html file would have this 
 
 ```html
 <div class="textItem">
-  <p>ctual long text for release.</p>
+  <p>Actual long text for release.</p>
 </div>
 ```
 

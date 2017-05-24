@@ -28,6 +28,7 @@ grunt.initConfig({
     options: {
       json: 'path/to/file.json',
       key: 'default',
+      defaultKey: 'default',
       openBracket : '{',
       closeBracket : '}'
     },
@@ -54,6 +55,12 @@ Default value: `'default'`
 
 Key in json has multiple text sources for the same text identifiers. This can come in handy if using different text for different release platforms.
 
+#### options.defaultKey
+Type: `String`
+Default value: `''`
+
+To save creating multiple keys where the value is the same for multiple environments, specify a default key and the `key` value will override where necessary.
+
 #### options.openBracket
 Type: `String`
 Default value: `'{'`
@@ -78,6 +85,7 @@ grunt.initConfig({
       options: {
         json: 'path/to/file.json',
         key: 'default',
+        defaultKey: 'default',
         openBracket : '{',
         closeBracket : '}'
       },
@@ -128,6 +136,3 @@ If the key option had been set to release, the output.html file would have this 
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_

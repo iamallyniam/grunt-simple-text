@@ -29,6 +29,7 @@ module.exports = function(grunt) {
         var openBracket = options.openBracket;
         var closeBracket = options.closeBracket;
         var fileKey = options.key;
+        var defaultKey = options.defaultKey;
         var regexp = new RegExp(openBracket + "(.*?)" + closeBracket,"g");
         if(jsonFile){
             

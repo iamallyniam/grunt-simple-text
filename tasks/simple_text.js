@@ -21,7 +21,8 @@ module.exports = function(grunt) {
             json: '',
             key: 'default',
             openBracket : '{',
-            closeBracket : '}'
+            closeBracket : '}',
+            defaultKey : ''
         });
 
         var jsonFile = options.json;
@@ -36,7 +37,36 @@ module.exports = function(grunt) {
             if(jsonFileExists){
                 
                 var jsonData = grunt.file.readJSON(jsonFile);
-                jsonData = jsonData[fileKey];
+                
+                if(defaultKey == ''){
+                    if(jsonData[fileKey]){
+                        jsonData = jsonData[fileKey];
+                    }else{
+                        grunt.log.writeln('Key not found.');
+                        return;
+                    }
+                }else{
+                    if(jsonData[defaultKey]){
+                        
+                        var defaultJson = jsonData[defaultKey];
+                        var overrideJson = {};
+                        if(jsonData[fileKey]){
+                            overrideJson = jsonData[fileKey];
+                        }
+                        for(var key in overrideJson){
+                            
+                            defaultJson[key] = overrideJson[key];
+                            
+                        }
+                        
+                        jsonData = defaultJson;
+                        
+                    }else{
+                        grunt.log.writeln('Key not found.');
+                        return;
+                    }
+                }
+                
                 
                 this.files.forEach(function (file) {
                     var src = file.src[0];

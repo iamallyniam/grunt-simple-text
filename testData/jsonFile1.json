@@ -1,0 +1,9 @@
+{
+    "df" : {
+        "varA" : "The quick brown fox jumps over the lazy dog",
+        "varB" : "Meep"
+    },
+    "new" : {
+        "varA" : "Beep"
+    }
+}

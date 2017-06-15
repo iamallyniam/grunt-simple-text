@@ -26,7 +26,7 @@ In your project's Gruntfile, add a section named `simple_text` to the data objec
 grunt.initConfig({
   simple_text: {
     options: {
-      json: 'path/to/file.json',
+      json: ['path/to/file.json', 'path/to/another.json'],
       key: 'default',
       defaultKey: 'default',
       openBracket : '{',
@@ -44,10 +44,10 @@ grunt.initConfig({
 ### Options
 
 #### options.json
-Type: `String`
+Type: `String|Array`
 Default value: `''`
 
-Path to json file containing the strings that can be added to your files.
+Path to a single json file or construct array of multiple json files containing the strings that can be added to your files.
 
 #### options.key
 Type: `String`
@@ -84,7 +84,7 @@ grunt.initConfig({
     main : {
       options: {
         json: 'path/to/file.json',
-        key: 'default',
+        key: 'release',
         defaultKey: 'default',
         openBracket : '{',
         closeBracket : '}'

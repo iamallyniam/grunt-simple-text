@@ -12,16 +12,6 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    jshint: {
-      all: [
-        'Gruntfile.js',
-        'tasks/*.js',
-        '<%= nodeunit.tests %>'
-      ],
-      options: {
-        jshintrc: '.jshintrc'
-      }
-    },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
@@ -30,20 +20,16 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     simple_text: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      },
       custom_options: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+          json: ['testData/jsonFile1.json', 'testData/jsonFile2.json'],
+          key: 'new',
+          defaultKey: 'df',
+          openBracket : '{',
+          closeBracket : '}'
         },
         files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/custom_options': 'test/fixtures/customer_options'
         }
       }
     },
@@ -68,6 +54,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean', 'simple_text', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['test']);
 
 };

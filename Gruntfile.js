@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     simple_text: {
-      custom_options: {
+      array_options: {
         options: {
           json: ['testData/jsonFile1.json', 'testData/jsonFile2.json'],
           key: 'new',
@@ -29,7 +29,19 @@ module.exports = function(grunt) {
           closeBracket : '}'
         },
         files: {
-          'tmp/custom_options': 'test/fixtures/customer_options'
+          'tmp/array_options': 'test/fixtures/custom_options'
+        }
+      },
+      string_options: {
+        options: {
+          json: 'testData/jsonFile1.json',
+          key: 'new',
+          defaultKey: 'df',
+          openBracket : '{',
+          closeBracket : '}'
+        },
+        files: {
+          'tmp/string_options': 'test/fixtures/custom_options'
         }
       }
     },

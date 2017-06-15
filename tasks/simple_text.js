@@ -33,7 +33,7 @@ module.exports = function(grunt) {
         var regexp = new RegExp(openBracket + "(.*?)" + closeBracket,"g"); //match all regex between opening and closing brackets
         
         //check if one or more json files need to be parsed.
-        if(jsonFiles.constructor === Array){
+        if(options.json.constructor === Array){
             jsonFiles = options.json;
         }else{
             if(options.json !== ''){

@@ -28,13 +28,22 @@ exports.simple_text = {
       
     done();
   },
-  custom_options: function(test) {
+  array_options: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
+    var actual = grunt.file.read('tmp/array_options');
+    var expected = grunt.file.read('test/expected/array_options');
     test.equal(actual, expected, ' not printing updated text as expected.');
 
     test.done();
   },
+  string_options: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/string_options');
+    var expected = grunt.file.read('test/expected/string_options');
+    test.equal(actual, expected, ' not printing updated text as expected.');
+
+    test.done();
+  }
 };
